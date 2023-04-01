@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"rsw watch\" \"vite\"",
+    "dev": "concurrently \"rsw watch\" \"vite\" \"nodemon src-mock-backend/server.js\"",
     "build": "rsw build && tsc && vite build",
     "rsw": "rsw"
   },
@@ -13,10 +13,14 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@iarna/toml": "^2.2.5",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.1.0",
     "concurrently": "^8.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22",
     "vite": "^4.2.0",
     "vite-plugin-rsw": "^2.0.11"
   }

@@ -1,0 +1,4 @@
+[server]
+port=5768
+[web]
+port=9675
