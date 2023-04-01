@@ -1,16 +1,32 @@
-import { useEffect } from "react";
-import init from "@wasm";
+import { useEffect, useState } from "react";
+import useWasm from "./hooks/useWasm";
 
 function App() {
-  useEffect(() => {
-    const fdata = async () => {
-      const { greet } = await init();
-      console.log("greet res:", greet("Rust and WebAssembly"));
-    };
-    fdata();
-  }, []);
-
-  return <div></div>;
+  const [err, funs] = useWasm();
+  const [arr, setArr] = useState(null);
+  if (err) {
+    return;
+  }
+  return (
+    <div>
+      <button
+        onClick={() => {
+          funs.put();
+        }}
+      >
+        put
+      </button>
+      <hr />
+      <button
+        onClick={() => {
+          setArr(funs.get());
+        }}
+      >
+        check
+      </button>
+      <div>{arr}</div>
+    </div>
+  );
 }
 
 export default App;

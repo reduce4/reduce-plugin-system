@@ -1,19 +1,29 @@
 mod utils;
+use std::sync::{Arc, Mutex};
 
-use wasm_bindgen::prelude::*;
+use lazy_static::lazy_static;
 
-// When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
-// allocator.
-#[cfg(feature = "wee_alloc")]
-#[global_allocator]
-static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
+use wasm_bindgen::{convert::ReturnWasmAbi, prelude::*};
 
 #[wasm_bindgen]
 extern "C" {
     #[wasm_bindgen(js_namespace = console)]
     fn log(s: &str);
 }
+
+lazy_static! {
+    static ref MY_VEC: Arc<Mutex<Vec<i32>>> = Arc::new(Mutex::new(Vec::new()));
+}
+
 #[wasm_bindgen]
-pub fn greet(greeting: &str) -> String {
-    String::from(greeting)
+pub fn put(greeting: i32) -> i32 {
+    let mut my_vec = MY_VEC.lock().unwrap();
+    log(my_vec.len().to_string().as_str());
+    my_vec.push(1);
+    1
+}
+#[wasm_bindgen]
+pub fn get() -> usize {
+    let mut my_vec = MY_VEC.lock().unwrap();
+    my_vec.len()
 }
