@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import useWasm from "./hooks/useWasm";
 
 function App() {
-  const [err, funs] = useWasm();
+  const [err, funs] = useWasm({
+    hello: () => {
+      console.log("hello, I am called");
+    },
+  });
   const [arr, setArr] = useState(null);
   if (err) {
     return;

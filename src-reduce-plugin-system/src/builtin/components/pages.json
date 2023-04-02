@@ -1,0 +1,17 @@
+[
+    {
+        "type": "@reduce/chatgpt"
+    },
+    {
+        "type": "@reduce/decomposition"
+    },
+    {
+        "type": "@reduce/abstraction"
+    },
+    {
+        "type": "@reduce/algorithm"
+    },
+    {
+        "type": "@reduce/pattern-recognition"
+    }
+]

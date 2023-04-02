@@ -1,9 +1,12 @@
 mod utils;
+use adaptation;
+use engine;
 use std::sync::{Arc, Mutex};
 
 use lazy_static::lazy_static;
 
 use wasm_bindgen::{convert::ReturnWasmAbi, prelude::*};
+//cmd
 
 #[wasm_bindgen]
 extern "C" {
@@ -26,4 +29,9 @@ pub fn put(greeting: i32) -> i32 {
 pub fn get() -> usize {
     let mut my_vec = MY_VEC.lock().unwrap();
     my_vec.len()
+}
+
+#[wasm_bindgen]
+pub fn init(platform_id: i32) -> usize {
+    1
 }

@@ -7,7 +7,6 @@ import fs from 'fs'
 const configFile = fs.readFileSync('rps.toml', 'utf-8')
 const config = toml.parse(configFile);
 
-
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [

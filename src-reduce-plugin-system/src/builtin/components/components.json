@@ -1,0 +1,8 @@
+[
+    {
+        "type": "@reduce/card"
+    },
+    {
+        "type": "@reduce/service-kit"
+    }
+]

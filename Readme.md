@@ -1,4 +1,6 @@
 reduce plugin system based on wasm.
 
-- rpsb.toml
-  reduce's mock backend config file
+- rps.toml
+  reduce plugin system's config file
+- rsw.toml
+  wasm generate's config file
