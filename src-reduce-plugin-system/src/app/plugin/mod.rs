@@ -1,11 +1,20 @@
 pub struct Plugin {
-    versin: String;
-    is_org: bool;
-    price: f64;
+    versin: String,
+    is_org: bool,
+    price: f64,
 }
 
-impl Plugin{
-    pub load(&self) -> Result<()>; /** plugin load */
-    pub tear_up(&self) -> Result<()>; /** plugin active */
-    pub tear_down(&self) -> Result<()>; /** plugin deactive */
+impl Plugin {
+    /** plugin load */
+    pub fn load(&self) -> Result<(), ()> {
+        todo!()
+    }
+    /** plugin active */
+    pub fn tear_up(&self) -> Result<(), ()> {
+        todo!()
+    }
+    /** plugin deactive */
+    pub fn tear_down(&self) -> Result<(), ()> {
+        todo!()
+    }
 }

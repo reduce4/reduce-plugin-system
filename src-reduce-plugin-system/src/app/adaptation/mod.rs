@@ -2,13 +2,15 @@ pub enum Platform {
     Web,
     Flutter,
     Untiy,
+    NotSupported,
 }
-impl Platform{
-    pub fn is(platform_code: i32) => Platform{
-        match platform_code{
+impl Platform {
+    pub fn is(platform_code: usize) -> Platform {
+        match platform_code {
             0 => Platform::Web,
             1 => Platform::Flutter,
-            2 => Untiy
+            2 => Platform::Untiy,
+            _ => Platform::NotSupported,
         }
     }
 }
