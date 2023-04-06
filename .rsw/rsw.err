@@ -1,0 +1,8 @@
+Error: crate-type must be cdylib to compile to wasm32-unknown-unknown. Add the following to your Cargo.toml file:
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+Caused by: crate-type must be cdylib to compile to wasm32-unknown-unknown. Add the following to your Cargo.toml file:
+
+[lib]
+crate-type = ["cdylib", "rlib"]
