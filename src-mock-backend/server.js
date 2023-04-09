@@ -13,9 +13,16 @@ app.get('/api', (req, res) => {
         ok: 1
     })
 })
+const nameTransfer = (name) => {
+    let index = Array.from(name).findIndex((char, index) => /[A-Z]/.test(char) && index != 0);
+    if (index == -1) {
+        return name;
+    }
+    return name.slice(0, index) + "-" + name.slice(index)
+}
 const mapToObj = (arr, type) => {
     return arr.map(name => ({
-        type: name.slice(0, name.indexOf(".")).toLowerCase(),
+        type: nameTransfer(name.slice(0, name.indexOf("."))).toLowerCase(),
         url: `./${type}/${name.slice(0, name.indexOf("."))}`
     }));
 }

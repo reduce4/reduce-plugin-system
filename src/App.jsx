@@ -8,14 +8,34 @@ const schema = `
 {
   "type": "card",
   "body": [
-    {
-      "type": "chatgpt",
-      "body": []
-    },
-    {
-      "type": "chatgpt",
-      "body": []
-    }
+          {
+              "id": "@reduce/decomposition",
+              "type": "decomposition",
+              "use": [
+                  "chatgpt",
+                  "reduce"
+              ]
+          },
+          {
+              "id": "@reduce/abstraction",
+              "type": "abstraction",
+              "use": [
+                  "chatgpt",
+                  "algorithm-kind",
+                  "reduce"
+              ]
+          },
+          {
+              "id": "@reduce/algorithm",
+              "type": "algorithm",
+              "use": [
+                  "algorithm-code"
+              ]
+          },
+          {
+              "id": "@reduce/pattern-recognition",
+              "type": "pattern-recognition"
+          }
   ]
 }
 `;
