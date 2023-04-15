@@ -1,0 +1,23 @@
+{
+    "jsc": {
+        "parser": {
+            "syntax": "ecmascript",
+            "jsx": true
+        },
+        "transform": {
+            "legacyDecorator": true,
+            "decoratorMetadata": true,
+        },
+        "target": "es2016",
+        "keepClassNames": true,
+        "loose": true
+    },
+    "env": {
+        "mode": "usage",
+        "coreJs": "3.26.1"
+    },
+    "module": {
+        "type": "es6",
+    },
+    "sourceMaps": true,
+}
