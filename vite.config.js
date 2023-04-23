@@ -7,11 +7,11 @@ import fs from 'fs'
 const configFile = fs.readFileSync('rps.toml', 'utf-8')
 const config = toml.parse(configFile);
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     ViteRsw(),
+
   ],
   resolve: {
     alias: {
@@ -19,7 +19,10 @@ export default defineConfig({
     }
   },
   server: {
-    port: config.web.port
+    port: config.web.port,
+    headers: {
+      'Cross-Origin-Embedder-Policy': 'require-corp',
+      'Cross-Origin-Opener-Policy': 'same-origin',
+    },
   }
-
 })

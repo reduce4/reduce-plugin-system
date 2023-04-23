@@ -4,15 +4,20 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"rsw watch\" \"vite\" \"nodemon src-mock-backend/server.js\"",
+    "dev": "concurrently \"rsw watch\" \"vite\" \"nodemon src-mock-backend/server.js\" \"yapi server --port 9290\"",
     "build": "rsw build && tsc && vite build",
     "rsw": "rsw"
   },
   "dependencies": {
+    "@webcontainer/api": "^1.1.3",
+    "antd": "^5.4.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0",
+    "react-router-dom": "^6.10.0"
   },
   "devDependencies": {
+    "swagger-ui-react": "^4.18.2",
     "@babel/core": "^7.21.4",
     "@babel/plugin-transform-modules-commonjs": "^7.21.2",
     "@babel/polyfill": "^7.12.1",
@@ -22,7 +27,7 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.1.0",
-    "antd": "^5.4.0",
+    "autoprefixer": "^10.4.14",
     "concurrently": "^8.0.1",
     "cors": "^2.8.5",
     "express": "^4.18.2",
