@@ -19,7 +19,8 @@ const PluginMarket = ({ onClose }) => {
         <Col span={24}>
           <MicroApp
             className="micro-app"
-            data={{ count }}
+            count={count}
+            setCount={setCount}
             entry="http://127.0.0.1:5175/src/main.jsx"
           />
         </Col>

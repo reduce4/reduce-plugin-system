@@ -4,8 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.module.css";
 
 function App(props) {
-  const [count, setCount] = useState(0);
-  console.log("props from main app", props);
+  console.log(props);
   return (
     <>
       <div>
@@ -18,8 +17,8 @@ function App(props) {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button onClick={() => props.setCount((count) => count + 1)}>
+          count is {props.count}
         </button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
