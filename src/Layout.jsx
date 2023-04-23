@@ -24,7 +24,6 @@ const RpsLayout = () => {
           onSelect={({ key }) => onSelect(key)}
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={["1"]}
           items={[
             {
               key: "1",

@@ -1,7 +1,7 @@
 // import webContainer from "../oo/webContainer";
 import React, { useEffect, useState } from "react";
 import { Button, Col, Row, Space } from "antd";
-import PluginList from "../components/PluginList";
+import { MicroApp } from "@micro-web/app";
 
 const _plugins = [{}];
 
@@ -16,8 +16,12 @@ const PluginMarket = ({ onClose }) => {
     <>
       <Row>
         <Col span={24}>
-          <PluginList plugins={plugins} />
+          <MicroApp
+            className="micro-app"
+            entry="http://127.0.0.1:5175/src/main.jsx"
+          />
         </Col>
+        <Col span={24}>{/* <Plugi nList plugins={plugins} /> */}</Col>
         <Col>
           <Button onClick={() => onClose()}>close</Button>
         </Col>
