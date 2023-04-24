@@ -1,5 +1,5 @@
 import { useState } from "react";
-import PluginMarket from "./PluginMarket";
+import Rps from "./Rps";
 import { Button, Modal } from "antd";
 const DemoPage = () => {
   const [modalOpen, setModalOpen] = useState({
@@ -20,9 +20,7 @@ const DemoPage = () => {
         width="90%"
         footer={null}
       >
-        <PluginMarket
-          onClose={() => setModalOpen({ ...modalOpen, open: false })}
-        />
+        <Rps onClose={() => setModalOpen({ ...modalOpen, open: false })} />
       </Modal>
     </>
   );

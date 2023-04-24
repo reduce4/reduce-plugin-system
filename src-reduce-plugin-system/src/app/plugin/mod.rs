@@ -22,6 +22,7 @@ pub enum V {
 pub struct Plugin {
     org_id: String, /*plugin only id in org*/
     org_name: String,
+    icon: String,
     author_name: String,
     profile_page: String,
     national_name: Vec<String>,
