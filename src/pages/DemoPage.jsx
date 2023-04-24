@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Rps from "./Rps";
+import Rpm from "./Rpm";
 import { Button, Modal } from "antd";
 const DemoPage = () => {
   const [modalOpen, setModalOpen] = useState({
@@ -20,7 +20,7 @@ const DemoPage = () => {
         width="90%"
         footer={null}
       >
-        <Rps onClose={() => setModalOpen({ ...modalOpen, open: false })} />
+        <Rpm onClose={() => setModalOpen({ ...modalOpen, open: false })} />
       </Modal>
     </>
   );

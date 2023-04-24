@@ -15,10 +15,6 @@ pub struct RoadMap {
 
 pub struct User {}
 
-pub enum V {
-    REDUCE_ORG,
-}
-
 pub struct Plugin {
     org_id: String, /*plugin only id in org*/
     org_name: String,
@@ -34,7 +30,7 @@ pub struct Plugin {
     component_url: String,
     usage: Vec<Usage>,
     roadmap: RoadMap,
-    v: V,
+    org_icon: String,
     command_list: Vec<String>,
 }
 pub struct Message {

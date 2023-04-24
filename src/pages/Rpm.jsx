@@ -6,8 +6,10 @@ import {
   SettingOutlined,
   CodeOutlined,
   ProfileOutlined,
+  NodeIndexOutlined,
 } from "@ant-design/icons";
 import PluginMarket from "./PluginMarket";
+import PluginDataFlowEditor from "./PluginDataFlowEditor";
 
 //mock data
 const _plugins = [
@@ -22,6 +24,7 @@ const _plugins = [
     description: "code editor for rps",
     pay_qrcode: "",
     icon: "",
+    org_icon: "",
     component_url: "http://127.0.0.1:5174/src/main.jsx",
     usage: [
       {
@@ -37,7 +40,6 @@ const _plugins = [
         "2023-04-25": "v0.0.0 code complete",
       },
     },
-    v: "REDUCE_ORG",
     command_list: ["editor.open", "editor.close"],
   },
 ];
@@ -91,6 +93,16 @@ const Rpm = ({ onClose }) => {
             key: "4",
             label: (
               <span>
+                <NodeIndexOutlined />
+                工作流
+              </span>
+            ),
+            children: <PluginDataFlowEditor />,
+          },
+          {
+            key: "5",
+            label: (
+              <span>
                 <CodeOutlined />
                 插件开发
               </span>
@@ -98,7 +110,7 @@ const Rpm = ({ onClose }) => {
             children: `Content of Tab Pane 4`,
           },
           {
-            key: "5",
+            key: "6",
             label: (
               <span>
                 <ProfileOutlined />
