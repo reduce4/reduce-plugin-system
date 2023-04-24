@@ -6,7 +6,7 @@ pub struct Comment {
 pub struct Usage {
     open_time: String,
     close_time: String,
-    duration: String,
+    duration: f32,
     command_history: Vec<String>,
 }
 pub struct RoadMap {
@@ -24,7 +24,7 @@ pub struct Plugin {
     org_name: String,
     author_name: String,
     profile_page: String,
-    national_name: String,
+    national_name: Vec<String>,
     comment: Vec<Comment>,
     repo_link: String,
     version: f32,
