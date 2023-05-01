@@ -13,7 +13,7 @@ const configs = [
 ];
 const useMenu = () => {
   const navigate = useNavigate();
-  const [selectIndex, setSelectIndex] = useState(1);
+  const [selectIndex, setSelectIndex] = useState(0);
   useEffect(() => {
     navigate(configs[selectIndex].path);
   }, [selectIndex]);

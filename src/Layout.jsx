@@ -8,10 +8,9 @@ import { Button, Layout, Menu, theme } from "antd";
 import { useState } from "react";
 import useMenu from "./hooks/useMenu";
 const { Header, Sider, Content } = Layout;
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 const RpsLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const navigate = useNavigate();
   const {
     token: { colorBgContainer },
   } = theme.useToken();
