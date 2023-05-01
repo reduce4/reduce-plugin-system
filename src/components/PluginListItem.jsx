@@ -8,7 +8,8 @@ import {
   Popover,
   Button,
 } from "antd";
-const PluginListItem = ({ plugin, onOpenPluginDetail }) => {
+import { CloudDownloadOutlined } from "@ant-design/icons";
+const PluginListItem = ({ plugin, onOpenPluginDetail, onInstall }) => {
   return (
     <>
       <Row
@@ -24,7 +25,7 @@ const PluginListItem = ({ plugin, onOpenPluginDetail }) => {
         <Col span={2}>
           <Avatar src={plugin.icon} />
         </Col>
-        <Col span={16}>
+        <Col span={14}>
           <Descriptions layout={"horizontal"} title={plugin.name}>
             <Descriptions.Item label="描述">
               {plugin.description}
@@ -79,6 +80,19 @@ const PluginListItem = ({ plugin, onOpenPluginDetail }) => {
               />
             </Button>
           </Popover>
+        </Col>
+        <Col span={2}>
+          {!plugin.installed && (
+            <Button
+              type="text"
+              onClick={(e) => {
+                e.stopPropagation();
+                onInstall(plugin.in_org_id);
+              }}
+            >
+              <CloudDownloadOutlined />
+            </Button>
+          )}
         </Col>
       </Row>
     </>

@@ -16,9 +16,12 @@ pub struct RoadMap {
 
 pub struct User {}
 
+
+
 pub struct Plugin {
     in_org_id: String, /*plugin only id in org*/
     name: String,
+    installed: bool,
     org_name: String,
     icon: String,
     author_name: String,

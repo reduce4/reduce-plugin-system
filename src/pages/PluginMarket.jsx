@@ -1,16 +1,8 @@
 import { Tabs } from "antd";
 import PluginSearch from "../components/PluginSearch";
-import {
-  StarOutlined,
-  CodeOutlined,
-  ApartmentOutlined,
-  ApiOutlined,
-} from "@ant-design/icons";
+import { StarOutlined, ApiOutlined } from "@ant-design/icons";
 import PluginAbilityGrid from "./PluginAbilityGrid";
-import PluginCollaborationGrid from "./PluginCollaborationGrid";
-import PluginDataFlowEditor from "./PluginDataFlowEditor";
 import PluginDataFlowGrid from "./PluginDataFlowGrid";
-import PluginDeveloperGrid from "./PluginDeveloperGrid";
 
 const PluginMarket = ({ plugins }) => {
   return (
@@ -50,26 +42,16 @@ const PluginMarket = ({ plugins }) => {
             ),
             children: <PluginAbilityGrid plugins={plugins} mode="list" />,
           },
-          {
-            key: "2",
-            label: (
-              <span>
-                <ApartmentOutlined />
-                部件
-              </span>
-            ),
-            children: <PluginCollaborationGrid />,
-          },
-          {
-            key: "3",
-            label: (
-              <span>
-                <CodeOutlined />
-                开发者
-              </span>
-            ),
-            children: <PluginDeveloperGrid />,
-          },
+          // {
+          //   key: "2",
+          //   label: (
+          //     <span>
+          //       <ApartmentOutlined />
+          //       部件
+          //     </span>
+          //   ),
+          //   children: <PluginCollaborationGrid />,
+          // },
         ]}
       />
     </>

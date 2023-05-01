@@ -1,6 +1,7 @@
-import { Card, Avatar, Space } from "antd";
+import { Card, Avatar, Space, Button } from "antd";
+import { CloudDownloadOutlined } from "@ant-design/icons";
 
-const PluginCard = ({ plugin, onOpenPluginDetail }) => {
+const PluginCard = ({ plugin, onOpenPluginDetail, onInstall }) => {
   return (
     <Card
       cover={
@@ -21,7 +22,22 @@ const PluginCard = ({ plugin, onOpenPluginDetail }) => {
           </>
         }
         title={plugin.name}
-        description={plugin.description}
+        description={
+          <Space align="baseline">
+            {plugin.description}
+            {!plugin.installed && (
+              <Button
+                type="text"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onInstall(plugin.in_org_id);
+                }}
+              >
+                <CloudDownloadOutlined />
+              </Button>
+            )}
+          </Space>
+        }
       />
     </Card>
   );
