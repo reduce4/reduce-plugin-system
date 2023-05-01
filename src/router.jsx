@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import DemoPage from "./pages/DemoPage";
 import Swagger from "./pages/Swagger";
 import Layout from "./Layout";
+import PluginDetail from "./pages/PluginDetail";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: "/swaggerui",
         element: <Swagger />,
+      },
+      {
+        path: "/detail/:id",
+        element: <PluginDetail />,
       },
     ],
   },

@@ -1,7 +1,8 @@
 pub struct Comment {
     name: String,
+    account: String,
     content: String,
-    star: i32,
+    star: i32,/** user give star */
 }
 pub struct Usage {
     open_time: String,
@@ -16,7 +17,8 @@ pub struct RoadMap {
 pub struct User {}
 
 pub struct Plugin {
-    org_id: String, /*plugin only id in org*/
+    in_org_id: String, /*plugin only id in org*/
+    name: String,
     org_name: String,
     icon: String,
     author_name: String,

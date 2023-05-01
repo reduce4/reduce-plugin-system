@@ -16,6 +16,7 @@ const DemoPage = () => {
       <Modal
         title={null}
         closable={null}
+        centered
         open={modalOpen.open}
         width="90%"
         footer={null}

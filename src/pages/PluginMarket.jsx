@@ -3,7 +3,6 @@ import PluginSearch from "../components/PluginSearch";
 import {
   StarOutlined,
   CodeOutlined,
-  NodeIndexOutlined,
   ApartmentOutlined,
   ApiOutlined,
 } from "@ant-design/icons";
@@ -13,7 +12,7 @@ import PluginDataFlowEditor from "./PluginDataFlowEditor";
 import PluginDataFlowGrid from "./PluginDataFlowGrid";
 import PluginDeveloperGrid from "./PluginDeveloperGrid";
 
-const PluginMarket = () => {
+const PluginMarket = ({ plugins }) => {
   return (
     <>
       <Tabs
@@ -49,7 +48,7 @@ const PluginMarket = () => {
                 能力
               </span>
             ),
-            children: <PluginAbilityGrid />,
+            children: <PluginAbilityGrid plugins={plugins} mode="list" />,
           },
           {
             key: "2",

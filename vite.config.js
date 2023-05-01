@@ -15,7 +15,8 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@wasm': path.resolve(__dirname, './src/wasm/src_reduce_plugin_system.js')
+      '@wasm': path.resolve(__dirname, './src/wasm/src_reduce_plugin_system.js'),
+      '@css': path.resolve(__dirname, './src/assets/css'),
     }
   },
   server: {
