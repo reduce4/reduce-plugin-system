@@ -18,7 +18,10 @@ const DemoPage = () => {
           type="primary"
           onClick={() => {
             var event = new Event("@reduce/showPlugin");
-            event.data = "@reduce/card@0.0.0";
+            event.data = {
+              plugin_id: "@reduce/card@0.0.0",
+              reload: Math.random(),
+            };
             window.dispatchEvent(event);
           }}
         >

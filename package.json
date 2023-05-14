@@ -9,6 +9,9 @@
     "rsw": "rsw"
   },
   "dependencies": {
+    "@antv/x6": "^2.10.1",
+    "@antv/x6-plugin-dnd": "^2.0.5",
+    "@antv/x6-react-shape": "^2.1.2",
     "@micro-web/app": "^0.2.0",
     "@micro-web/sub": "^0.2.3",
     "@webcontainer/api": "^1.1.3",

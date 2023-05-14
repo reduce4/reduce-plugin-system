@@ -15,6 +15,7 @@ import PluginDataFlowEditor from "./PluginDataFlowEditor";
 import _plugins from "./plugins";
 import useSignals from "../hooks/rpm/useSignals";
 import useShowPlugin from "../hooks/rpm/useShowPlugin";
+import DataFlowEditor from "../components/dataflow/DataFlowEditor";
 //mock data
 
 /** rpm -- reduce plugin market */
@@ -32,7 +33,8 @@ const Rpm = ({ onClose }) => {
   }
   return (
     <>
-      <Tabs
+      <DataFlowEditor />
+      {/* <Tabs
         tabBarExtraContent={
           <>
             <Button type="text" onClick={() => onClose()}>
@@ -108,7 +110,7 @@ const Rpm = ({ onClose }) => {
             children: `Content of Tab Pane 5`,
           },
         ]}
-      />
+      /> */}
     </>
   );
 };

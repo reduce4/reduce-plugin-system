@@ -40,7 +40,7 @@ const PluginMarket = ({ plugins }) => {
                 能力
               </span>
             ),
-            children: <PluginAbilityGrid plugins={plugins} mode="list" />,
+            children: <PluginAbilityGrid plugins={plugins} mode="card" />,
           },
           // {
           //   key: "2",
