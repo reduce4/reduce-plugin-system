@@ -1,22 +1,18 @@
 import { Dropdown, Space } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 const items = [
-  { key: "1", label: "下载最多" },
-  { key: "2", label: "最新发布" },
-  { key: "3", label: "最近更新" },
+  { key: "1", label: "列表" },
+  { key: "2", label: "卡片" },
 ];
 
-const PluginFilter = ({ onRecentUpdate, onRecentPublish, onMostDownload }) => {
+const PluginShowFilter = ({ onList, onCard }) => {
   const onClick = ({ key }) => {
     switch (key) {
       case "1":
-        onMostDownload();
+        onList();
         break;
       case "2":
-        onRecentPublish();
-        break;
-      case "3":
-        onRecentUpdate();
+        onCard();
         break;
     }
   };
@@ -28,10 +24,10 @@ const PluginFilter = ({ onRecentUpdate, onRecentPublish, onMostDownload }) => {
       }}
     >
       <Space>
-        最受欢迎
+        展现方式
         <DownOutlined />
       </Space>
     </Dropdown>
   );
 };
-export default PluginFilter;
+export default PluginShowFilter;

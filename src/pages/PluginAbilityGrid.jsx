@@ -1,6 +1,7 @@
 import { Col, Divider, Drawer, Row, Space } from "antd";
 import { Fragment, useState } from "react";
 import PluginFilter from "../components/PluginFilter";
+import PluginShowFilter from "../components/PluginShowFilter";
 import PluginCard from "../components/PluginCard";
 import PluginListItem from "../components/PluginListItem";
 import useDrawer from "../hooks/useDrawer";
@@ -9,9 +10,10 @@ const rowNum = 4;
 /**
  * @mode: card | list
  */
-const PluginAbilityGrid = ({ plugins, mode }) => {
+const PluginAbilityGrid = ({ plugins, mode, onModeChange }) => {
   const [drawerOpen, setDrawerOpen] = useDrawer();
   const [openPluginId, setOpenPluginId] = useState(null);
+
   const openPluginDetail = (plugin_id) => {
     setOpenPluginId(plugin_id);
     setDrawerOpen(true);
@@ -27,6 +29,14 @@ const PluginAbilityGrid = ({ plugins, mode }) => {
       >
         <Row>
           <Col span={24} align="right">
+            <PluginShowFilter
+              onList={() => {
+                onModeChange("list");
+              }}
+              onCard={() => {
+                onModeChange("card");
+              }}
+            />
             <PluginFilter
               onMostDownload={() => {}}
               onRecentPublish={() => {}}

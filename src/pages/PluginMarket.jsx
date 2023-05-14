@@ -3,8 +3,10 @@ import PluginSearch from "../components/PluginSearch";
 import { StarOutlined, ApiOutlined } from "@ant-design/icons";
 import PluginAbilityGrid from "./PluginAbilityGrid";
 import PluginDataFlowGrid from "./PluginDataFlowGrid";
-
+import usePluginShowFilter from "../hooks/usePluginShowFilter";
 const PluginMarket = ({ plugins }) => {
+  const [pluginShow, setPluginShow] = usePluginShowFilter("list");
+
   return (
     <>
       <Tabs
@@ -40,7 +42,13 @@ const PluginMarket = ({ plugins }) => {
                 能力
               </span>
             ),
-            children: <PluginAbilityGrid plugins={plugins} mode="card" />,
+            children: (
+              <PluginAbilityGrid
+                plugins={plugins}
+                mode={pluginShow}
+                onModeChange={(mode) => setPluginShow(mode)}
+              />
+            ),
           },
           // {
           //   key: "2",

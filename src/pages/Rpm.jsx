@@ -33,8 +33,7 @@ const Rpm = ({ onClose }) => {
   }
   return (
     <>
-      <DataFlowEditor />
-      {/* <Tabs
+      <Tabs
         tabBarExtraContent={
           <>
             <Button type="text" onClick={() => onClose()}>
@@ -110,7 +109,7 @@ const Rpm = ({ onClose }) => {
             children: `Content of Tab Pane 5`,
           },
         ]}
-      /> */}
+      />
     </>
   );
 };
