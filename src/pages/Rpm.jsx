@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Button, Tabs } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
-
+import ReactDOM from "react-dom";
+import { MicroApp } from "@micro-web/app";
+import usePluginState from "../hooks/rpm/usePluginState";
 import {
   AppstoreAddOutlined,
   AppstoreOutlined,
@@ -16,23 +18,85 @@ import _plugins from "./plugins";
 import useSignals from "../hooks/rpm/useSignals";
 import useShowPlugin from "../hooks/rpm/useShowPlugin";
 import DataFlowEditor from "../components/dataflow/DataFlowEditor";
+const PluginPortal = ({ data, plugin }) => {
+  const [position, setPosition] = useState({
+    left: "50%",
+    top: "50%",
+  });
+  const [offset, setOffset] = useState({
+    x: 0,
+    y: 0,
+  });
+  const container = document.createElement("div");
+  container.id = plugin.in_org_id;
+  document.body.appendChild(container);
+  return ReactDOM.createPortal(
+    <>
+      <div
+        style={{
+          position: "fixed",
+          top: position.top,
+          left: position.left,
+        }}
+        draggable
+        onDragOver={(e) => {
+          console.log("drag,over", e);
+          e.preventDefault();
+          setPosition({
+            left: e.clientX - offset.x,
+            top: e.clientY - offset.y,
+          });
+        }}
+        onDragStart={(e) => {
+          console.log("drag,start", e);
+          setOffset(() => ({
+            x: e.nativeEvent.layerX,
+            y: e.nativeEvent.layerY,
+          }));
+        }}
+        onDragEnd={(e) => {
+          console.log("drag,end", e);
+          setPosition({
+            left: e.clientX - offset.x,
+            top: e.clientY - offset.y,
+          });
+        }}
+      >
+        <MicroApp
+          entry={plugin.component_url}
+          plugin={plugin}
+          reload={data.reload}
+          onClose={() => {
+            container.remove();
+          }}
+        />
+      </div>
+    </>,
+    container
+  );
+};
 //mock data
 
 /** rpm -- reduce plugin market */
 const Rpm = ({ onClose }) => {
   const [plugins, setPlugins] = useState(null);
   const [signals] = useSignals();
-  useShowPlugin(signals?.showPlugin ?? null, plugins);
-
+  const handlePlugin = useShowPlugin(signals?.showPlugin ?? null, plugins);
+  //请求插件资源
   useEffect(() => {
     setPlugins(_plugins);
   }, []);
+  //插件的状态
+  const [pluginState, setPluginState] = usePluginState({ plugins });
 
-  if (!plugins) {
+  if (!plugins || !pluginState) {
     return;
   }
   return (
     <>
+      {handlePlugin && (
+        <PluginPortal data={handlePlugin[0]} plugin={handlePlugin[1]} />
+      )}
       <Tabs
         tabBarExtraContent={
           <>

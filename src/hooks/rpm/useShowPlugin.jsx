@@ -1,8 +1,7 @@
-import { MicroApp } from "@micro-web/app";
-import { useEffect } from "react";
-import ReactDOM from "react-dom";
+import { useEffect, useState } from "react";
 
 const useShowPlugin = (data, plugins) => {
+  const [p, setP] = useState(null);
   useEffect(() => {
     if (!data) {
       return;
@@ -15,24 +14,8 @@ const useShowPlugin = (data, plugins) => {
     if (!plugin) {
       return;
     }
-    const div = document.createElement("div");
-    div.id = plugin.in_org_id;
-    ReactDOM.render(
-      <MicroApp
-        entry={plugin.component_url}
-        plugin={plugin}
-        reload={data.reload}
-        onClose={() => {
-          div.remove();
-        }}
-      />,
-      div
-    );
-    var prevDiv = document.getElementById(plugin.in_org_id);
-    if (prevDiv) {
-      prevDiv.remove();
-    }
-    document.body.appendChild(div);
+    setP(plugin);
   }, [data, plugins]);
+  return p == null ? null : [data, p];
 };
 export default useShowPlugin;

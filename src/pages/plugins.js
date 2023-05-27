@@ -102,7 +102,7 @@ export default
             pay_qrcode: "",
             icon: "/plugin.png",
             org_icon: "/reduce_org.png",
-            component_url: "http://127.0.0.1:5174/src/main.jsx",
+            component_url: "http://127.0.0.1:5173/src/main.jsx",
             comment: [
                 {
                     name: "happysmile",

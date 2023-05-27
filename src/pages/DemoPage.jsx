@@ -19,13 +19,13 @@ const DemoPage = () => {
           onClick={() => {
             var event = new Event("@reduce/showPlugin");
             event.data = {
-              plugin_id: "@reduce/card@0.0.0",
+              plugin_id: "@reduce/chatgpt@0.0.0",
               reload: Math.random(),
             };
             window.dispatchEvent(event);
           }}
         >
-          打开card
+          打开插件
         </Button>
       </Space>
 
