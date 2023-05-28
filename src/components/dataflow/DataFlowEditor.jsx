@@ -11,6 +11,7 @@ import useExport from "../../hooks/dataflow/useExport";
 import useDragPlugin from "../../hooks/dataflow/useDragPlugin";
 import useHistory from "../../hooks/dataflow/useHistory";
 import useConfigPanel from "../../hooks/dataflow/useConfigPanel";
+import ConfigPanel from "./ConfigPanel";
 
 const DataFlowEditor = () => {
   const [data, setData] = useState(json);
@@ -79,17 +80,18 @@ const DataFlowEditor = () => {
             </div>
           </Layout.Content>
         </Layout>
-        <Drawer
-          title="Basic Drawer"
-          closable={false}
-          onClose={() => setPanelOpen(false)}
-          open={panelOpen}
-          key={"right"}
-        >
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-        </Drawer>
+        {configPlugin && (
+          <Drawer
+            key={configPlugin.in_org_id}
+            title={configPlugin.name}
+            closable={false}
+            onClose={() => setPanelOpen(false)}
+            height="calc(80vh)"
+            open={panelOpen}
+          >
+            <ConfigPanel plugin={configPlugin} />
+          </Drawer>
+        )}
       </Layout>
     </>
   );
