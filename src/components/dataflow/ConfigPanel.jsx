@@ -33,8 +33,8 @@ const ConfigItem = ({ pluginHookItem, selected }) => {
     </Row>
   );
 };
-const ConfigPanel = ({ plugin, selectHook, setSelectHook }) => {
-  console.log("sel", selectHook);
+const ConfigPanel = ({ plugin, selectNode, setSelectNode }) => {
+  console.log("selec", selectNode.store.data.data.selectHook);
   return (
     <>
       <Row align={"middle"}>
@@ -50,9 +50,11 @@ const ConfigPanel = ({ plugin, selectHook, setSelectHook }) => {
         <Col span={24}>
           <Radio.Group
             onChange={({ target: { value } }) => {
-              setSelectHook(value);
+              var c = { ...selectNode };
+              c.store.data.data.selectHook = value;
+              setSelectNode(c);
             }}
-            value={selectHook}
+            value={selectNode.store.data.data.selectHook}
             style={{
               width: "100%",
               display: "flex",
@@ -69,7 +71,7 @@ const ConfigPanel = ({ plugin, selectHook, setSelectHook }) => {
               {Object.keys(plugin.dsl?.hooks ?? {}).map((hookItem, idx) => (
                 <ConfigItem
                   key={idx}
-                  selected={selectHook}
+                  selected={selectNode.store.data.data.selectHook}
                   pluginHookItem={(plugin.dsl?.hooks ?? {})[hookItem]}
                 />
               ))}

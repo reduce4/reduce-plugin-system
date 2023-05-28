@@ -34,29 +34,23 @@ const DataFlowEditor = () => {
   //部署按钮
   const [deploy, setDeploy] = useState(0);
   //节点配置面板
-  const [
-    configPlugin,
-    panelOpen,
-    setPanelOpen,
-    selectHook,
-    setSelectHook,
-    selectNode,
-  ] = useConfigPanel(graph);
+  const [configPlugin, panelOpen, setPanelOpen, selectNode, setSelectNode] =
+    useConfigPanel(graph);
   useEffect(() => {
-    console.log("deploy");
     onReExportData();
   }, [deploy]);
   //模态框关闭，更新节点状态
   useEffect(() => {
-    if (panelOpen == true && selectNode != null) {
-      setSelectHook(selectNode.selectHook);
+    if (panelOpen == true && selectNode) {
+      // setSelectHook(selectNode.selectHook);
     }
     if (panelOpen == false && selectNode) {
-      const data = selectNode.getData();
-      selectNode.setData({
-        ...data,
-        selectHook: selectHook,
-      });
+      const data = selectNode.store.data;
+      // selectNode.setData({
+      //   ...data,
+      //   selectHook: selectHook,
+      // });
+      console.log("data", data, selectNode);
     }
   }, [panelOpen, selectNode]);
 
@@ -110,8 +104,8 @@ const DataFlowEditor = () => {
             open={panelOpen}
           >
             <ConfigPanel
-              selectHook={selectHook}
-              setSelectHook={setSelectHook}
+              selectNode={selectNode}
+              setSelectNode={setSelectNode}
               plugin={configPlugin}
             />
           </Drawer>
