@@ -15,6 +15,30 @@ const useGraphCustom = () => {
       },
       ports: {
         groups: {
+          left: {
+            position: "left",
+            attrs: {
+              circle: {
+                r: 4,
+                magnet: true,
+                stroke: "#C2C8D5",
+                strokeWidth: 1,
+                fill: "#fff",
+              },
+            },
+          },
+          right: {
+            position: "right",
+            attrs: {
+              circle: {
+                r: 4,
+                magnet: true,
+                stroke: "#C2C8D5",
+                strokeWidth: 1,
+                fill: "#fff",
+              },
+            },
+          },
           top: {
             position: "top",
             attrs: {

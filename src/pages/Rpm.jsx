@@ -86,17 +86,17 @@ const Rpm = ({ onClose }) => {
   useEffect(() => {
     setPlugins(_plugins);
   }, []);
-  //插件的状态
-  const [pluginState, setPluginState] = usePluginState({ plugins });
+  //插件的状态 TODO
+  // const [pluginState, setPluginState] = usePluginState({ plugins });
 
-  if (!plugins || !pluginState) {
+  if (!plugins) {
     return;
   }
+  /* {handlePlugin && (
+        <PluginPortal data={handlePlugin[0]} plugin={handlePlugin[1]} />
+      )} */
   return (
     <>
-      {handlePlugin && (
-        <PluginPortal data={handlePlugin[0]} plugin={handlePlugin[1]} />
-      )}
       <Tabs
         tabBarExtraContent={
           <>
@@ -106,7 +106,7 @@ const Rpm = ({ onClose }) => {
           </>
         }
         style={{
-          height: "80vh",
+          height: "100%",
           overflow: "hidden",
           padding: "0 10px",
         }}

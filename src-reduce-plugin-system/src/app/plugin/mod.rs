@@ -37,6 +37,7 @@ pub struct Plugin {
     roadmap: RoadMap,
     org_icon: String,
     command_list: Vec<String>,
+    dsl: String,
 }
 pub struct Message {
     from_org_id: String,

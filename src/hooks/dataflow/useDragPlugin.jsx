@@ -20,12 +20,16 @@ const useDragPlugin = (graph) => {
     }
     const node = graph.createNode({
       shape: "plugin",
-      width: 100,
-      height: 40,
+      width: 180,
+      height: 36,
       ports: [
         {
-          "id": "1-1",
-          "group": "bottom"
+          "id": "1",
+          "group": "left"
+        },
+        {
+          "id": "3",
+          "group": "right"
         }
       ]
     });

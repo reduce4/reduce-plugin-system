@@ -1,9 +1,11 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import {Graph} from "@antv/x6";
+import { Graph } from "@antv/x6";
+import { History } from "@antv/x6-plugin-history";
+import { Selection } from "@antv/x6-plugin-selection";
 
 const useGraph = (containerRef) => {
-  const [g, setG] = useState(null)
+  const [g, setG] = useState(null);
   if (!containerRef) {
     return [];
   }
@@ -15,8 +17,8 @@ const useGraph = (containerRef) => {
         background: {
           color: "#F2F7FA",
         },
-        panning: true, //缩放画布
-        mousewheel: true, //拖拽画布
+        panning: true, //拖拽画布
+        mousewheel: false, //缩放画布
         grid: {
           visible: true,
           type: "doubleMesh",
@@ -33,9 +35,23 @@ const useGraph = (containerRef) => {
           ],
         },
       });
+      graph.use(
+        new History({
+          enabled: true,
+        })
+      );
+      graph.use(
+        new Selection({
+          enabled: true,
+          multiple: true,
+          rubberband: true,
+          movable: true,
+          showNodeSelectionBox: true,
+        })
+      );
       setG(graph);
     }
-  }, [containerRef.current])
-  return [g]
-}
+  }, [containerRef.current]);
+  return [g];
+};
 export default useGraph;
