@@ -1,5 +1,5 @@
-import { Space, Avatar } from "antd";
-const PluginListItem = ({ plugin, onDrag }) => {
+import { Space, Avatar, Row, Col } from "antd";
+const PluginListItem = ({ plugin, onDrag, selectHook }) => {
   return (
     <div
       onClick={() => {}}
@@ -14,10 +14,34 @@ const PluginListItem = ({ plugin, onDrag }) => {
         background: "white",
       }}
     >
-      <Space justify="space-between" align="center" size="middle">
-        <Avatar src={plugin.icon}></Avatar>
-        <span>{plugin.name}</span>
-      </Space>
+      <Row gutter={16} align={"middle"}>
+        <Col span={4}>
+          <Avatar src={plugin.icon}></Avatar>
+        </Col>
+        <Col span={20}>
+          <p style={{ lineHeight: 0 }}>
+            <span
+              style={{
+                fontWeight: 500,
+              }}
+            >
+              {plugin.name}
+            </span>
+          </p>
+          {selectHook && (
+            <p style={{ lineHeight: 0 }}>
+              <span
+                style={{
+                  fontWeight: 500,
+                }}
+              >
+                触发:
+              </span>
+              {selectHook}
+            </p>
+          )}
+        </Col>
+      </Row>
     </div>
   );
 };

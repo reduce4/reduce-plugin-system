@@ -33,8 +33,8 @@ const ConfigItem = ({ pluginHookItem, selected }) => {
     </Row>
   );
 };
-const ConfigPanel = ({ plugin }) => {
-  const [select, setSelect] = useState(null);
+const ConfigPanel = ({ plugin, selectHook, setSelectHook }) => {
+  console.log("sel", selectHook);
   return (
     <>
       <Row align={"middle"}>
@@ -50,9 +50,9 @@ const ConfigPanel = ({ plugin }) => {
         <Col span={24}>
           <Radio.Group
             onChange={({ target: { value } }) => {
-              setSelect(value);
+              setSelectHook(value);
             }}
-            value={select}
+            value={selectHook}
             style={{
               width: "100%",
               display: "flex",
@@ -69,7 +69,7 @@ const ConfigPanel = ({ plugin }) => {
               {Object.keys(plugin.dsl?.hooks ?? {}).map((hookItem, idx) => (
                 <ConfigItem
                   key={idx}
-                  selected={select}
+                  selected={selectHook}
                   pluginHookItem={(plugin.dsl?.hooks ?? {})[hookItem]}
                 />
               ))}

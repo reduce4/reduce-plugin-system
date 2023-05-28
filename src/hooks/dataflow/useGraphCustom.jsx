@@ -11,8 +11,14 @@ const useGraphCustom = () => {
       width: 180,
       height: 36,
       component: ({ node }) => {
-        return <PluginListItem plugin={node.data.plugin} />;
+        return (
+          <PluginListItem
+            plugin={node.data.plugin}
+            selectHook={node.data.selectHook}
+          />
+        );
       },
+      effect: ["data"],
       ports: {
         groups: {
           left: {
