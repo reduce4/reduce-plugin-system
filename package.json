@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "concurrently \"rsw watch\" \"vite\" \"nodemon src-mock-backend/server.js\" \"yapi server --port 9290\"",
     "build": "rsw build && tsc && vite build",
+    "build:demo": "vite build",
     "rsw": "rsw"
   },
   "dependencies": {

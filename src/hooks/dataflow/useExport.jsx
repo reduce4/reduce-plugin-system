@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 const useExport = (graph) => {
   const [reload, setReload] = useState(0);
@@ -7,8 +7,8 @@ const useExport = (graph) => {
       return;
     }
     const json = graph.toJSON();
-    console.log('json', json)
-  }, [graph, reload])
-  return [reload, setReload]
-}
+    console.log("json", json);
+  }, [graph, reload]);
+  return [reload, setReload];
+};
 export default useExport;

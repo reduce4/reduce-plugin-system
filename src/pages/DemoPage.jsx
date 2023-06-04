@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Rpm from "./Rpm";
 import { Button, Modal, Space } from "antd";
+import { MicroApp } from "@micro-web/app";
 const DemoPage = () => {
   const [modalOpen, setModalOpen] = useState({
     open: false,
@@ -14,48 +15,8 @@ const DemoPage = () => {
         >
           打开插件商店
         </Button>
-        <Button
-          type="primary"
-          onClick={() => {
-            var event = new Event("@reduce/showPlugin");
-            event.data = {
-              plugin_id: "@reduce/chatgpt@0.0.0",
-              reload: Math.random(),
-            };
-            window.dispatchEvent(event);
-          }}
-        >
-          打开插件
-        </Button>
       </Space>
-
-      {/* <Modal
-        title={null}
-        maskClosable={false}
-        centered
-        keyboard={false}
-        open={true}
-        width="90%"
-        footer={null}
-        style={{
-          height: 0,
-          overflow: "hidden",
-        }}
-        maskStyle={{
-          height: 0,
-          overflow: "hidden",
-        }}
-        bodyStyle={{
-          height: 0,
-          overflow: "hidden",
-        }}
-        onCancel={() => {
-          setModalOpen(() => ({
-            ...modalOpen,
-            open: false,
-          }));
-        }}
-      > */}
+      {/* 让rpm的dom提前渲染，里面的方法，hooks能够执行 */}
       <div
         style={{
           position: "fixed",
@@ -86,7 +47,6 @@ const DemoPage = () => {
           />
         </div>
       </div>
-      {/* </Modal> */}
     </>
   );
 };

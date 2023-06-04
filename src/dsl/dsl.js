@@ -1,4 +1,20 @@
 export default {
+    "@reduce/card@0.0.0": {
+        "hooks": {
+            "doShow": {
+                "input": "doShow",
+                "inputInitValue": "'Complete'",
+                "payloadType": "string",
+                "hooksMeans": "改变card能力的展现方式"
+            },
+            "doMove": {
+                "input": "doMove",
+                "inputInitValue": "[0,0]",
+                "payloadType": "array",
+                "hooksMeans": "在(x,y)处显示"
+            }
+        }
+    },
     "@reduce/chatgpt@0.0.0": {
         "hooks": {
             "doType": {

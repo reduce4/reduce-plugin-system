@@ -58,7 +58,7 @@ export default
       pay_qrcode: "",
       icon: "/plugin.png",
       org_icon: "/reduce_org.png",
-      component_url: "http://127.0.0.1:5174/src/main.jsx",
+      component_url: "http://127.0.0.1:6002/card/src/main.jsx",
       comment: [
         {
           name: "happysmile",
@@ -87,6 +87,22 @@ export default
           "2023-05-03": "v0.0.0 complete",
         },
       },
+      dsl: {
+        "hooks": {
+          "doShow": {
+            "input": "doShow",
+            "inputInitValue": "'Complete'",
+            "payloadType": "string",
+            "hooksMeans": "改变card能力的展现方式"
+          },
+          "doMove": {
+            "input": "doMove",
+            "inputInitValue": "[0,0]",
+            "payloadType": "array",
+            "hooksMeans": "在(x,y)处显示"
+          }
+        }
+      }
     },
     {
       in_org_id: "@reduce/chatgpt@0.0.0",
@@ -102,7 +118,7 @@ export default
       pay_qrcode: "",
       icon: "/plugin.png",
       org_icon: "/reduce_org.png",
-      component_url: "http://127.0.0.1:5173/src/main.jsx",
+      component_url: "http://127.0.0.1:5174/src/main.jsx",
       comment: [
         {
           name: "happysmile",
@@ -167,7 +183,7 @@ export default
       pay_qrcode: "",
       icon: "/plugin.png",
       org_icon: "/reduce_org.png",
-      component_url: "http://127.0.0.1:5174/src/main.jsx",
+      component_url: "http://127.0.0.1:6001/pdf/src/main.jsx",
       comment: [
         {
           name: "happysmile",

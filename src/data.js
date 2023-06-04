@@ -11,7 +11,8 @@ export default
       "x": 90,
       "y": 110,
       "data": {
-        "plugin": plugins.find(({in_org_id}) => in_org_id == '@reduce/pdf@0.0.0')
+        "plugin": plugins.find(({ in_org_id }) => in_org_id == '@reduce/pdf@0.0.0'),
+        "selectHook": "doFloatButtonClick"
       },
       "ports": [
         {
@@ -26,7 +27,8 @@ export default
       "x": 390,
       "y": 110,
       "data": {
-        "plugin": plugins.find(({in_org_id}) => in_org_id == '@reduce/card@0.0.0')
+        "plugin": plugins.find(({ in_org_id }) => in_org_id == '@reduce/card@0.0.0'),
+        "selectHook": "doMove"
       },
       "ports": [
         {
@@ -36,7 +38,7 @@ export default
       ]
     },
     {
-      "id": "3",
+      "id": "@reduce/3",
       "shape": "edge",
       "source": {
         "cell": "@reduce/1",

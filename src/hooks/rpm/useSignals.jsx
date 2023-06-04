@@ -5,6 +5,7 @@ const useSignals = () => {
   const showPluginHandler = ({ data }) => {
     setSignals((value) => ({ ...value, showPlugin: data }));
   };
+  //通过事件进行解耦
   useEffect(() => {
     window.addEventListener("@reduce/showPlugin", showPluginHandler);
     return () => {

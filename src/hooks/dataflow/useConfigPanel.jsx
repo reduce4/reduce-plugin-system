@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-
+var cNode = null;
 const useConfigPanel = (graph) => {
   const [configPlugin, setConfigPlugin] = useState(null);
   const [modelOpen, setModelOpen] = useState(false);
@@ -15,8 +15,21 @@ const useConfigPanel = (graph) => {
       setModelOpen(true);
       setConfigPlugin(choicePlugin);
       setSelectNode(node);
+      cNode = node;
     });
   }, [graph]);
+  //模态框关闭，更新节点状态
+  useEffect(() => {
+    if (modelOpen == true && selectNode) {
+      // setSelectHook(selectNode.selectHook);
+    }
+    if (modelOpen == false && selectNode) {
+      const data = selectNode.store.data;
+      cNode.setData({
+        ...data,
+      });
+    }
+  }, [modelOpen, selectNode]);
   return [configPlugin, modelOpen, setModelOpen, selectNode, setSelectNode];
 };
 export default useConfigPanel;

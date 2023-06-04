@@ -34,7 +34,6 @@ const ConfigItem = ({ pluginHookItem, selected }) => {
   );
 };
 const ConfigPanel = ({ plugin, selectNode, setSelectNode }) => {
-  console.log("selec", selectNode.store.data.data.selectHook);
   return (
     <>
       <Row align={"middle"}>

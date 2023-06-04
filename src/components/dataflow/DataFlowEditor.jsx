@@ -39,20 +39,6 @@ const DataFlowEditor = () => {
   useEffect(() => {
     onReExportData();
   }, [deploy]);
-  //模态框关闭，更新节点状态
-  useEffect(() => {
-    if (panelOpen == true && selectNode) {
-      // setSelectHook(selectNode.selectHook);
-    }
-    if (panelOpen == false && selectNode) {
-      const data = selectNode.store.data;
-      // selectNode.setData({
-      //   ...data,
-      //   selectHook: selectHook,
-      // });
-      console.log("data", data, selectNode);
-    }
-  }, [panelOpen, selectNode]);
 
   return (
     <>
